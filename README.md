@@ -72,40 +72,21 @@ Here’s how data flows through the app:
 
 ##  How to Run Locally
 
-### 1. Clone the Repository
+### . Clone the Repository
 
 ```bash
-git clone https://github.com/Renad-SDA2023/renad-blog-app.git
+git clone https://github.com/cw-barry/blog-app-MERN.git
 cd blog-app-MERN
 ```
 ###  Backend Setup
 
 ```bash
 cd backend
-npm install
-npm start
+cp .env.example .env
+pnpm install
+pnpm run dev
 ```
-###   Note: Backend is managed using PM2 for reliability:
-
-
-```bash
-pm2 start index.js --name "blog-backend"
-pm2 save
-pm2 startup
-
-```
-###  Frontend Setup
-
-```bash
-cd frontend
-npm install
-npm run dev
-
-```
-Make sure the frontend is configured to communicate with the correct backend API URL.
-
-
-###  Environment Variables
+###  Environment Variables:
 Add a .env file in your backend/ folder:
 
 ```bash
@@ -117,6 +98,43 @@ AWS_SECRET_ACCESS_KEY=your_aws_secret
 S3_BUCKET_NAME=your_bucket_name
 S3_REGION=eu-north-1
 ```
+Make sure your MongoDB URI is set correctly in .env.
+
+###   Setup Frontend:
+
+
+```bash
+cd ../frontend
+pnpm install
+pnpm run dev
+
+```
+Visit the app at http://localhost:5173
+###  Deployment (AWS)
+
+```bash
+Frontend: Deployed on S3 Bucket
+Example URL:
+http://renad-blogapp-frontend.s3-eu-north-1.amazonaws.com/
+
+Backend: Running on EC2 Instance with PM2 and NGINX
+Access via:
+http://<your-ec2-public-ip>:5000
+
+
+```
+
+Make sure the frontend is configured to communicate with the correct backend API URL.
+
+###  Traffic Flow (Architecture Overview):
+
+
+```bash
+User → Route 53 (optional) → ALB → EC2 (backend)
+         ↳ S3 Static Hosting (frontend)
+
+```
+
 ###  Tech Stack
 
 ```bash
@@ -131,6 +149,18 @@ DevOps: PM2, AWS S3, (Optional: ALB + ASG)
 
 Others: PowerShell (for upload), dotenv
 
+
+```
+###  Screenshots:
+
+
+```bash
+
+✅ S3 Static Website URL working & curl -I response shows 200 OK  file name :200 OK
+
+✅ pm2 list screenshot showing backend running   file name :PM2 status
+
+✅ Uploaded image to S3 and accessed via public URL  file name : Upload an image
 
 ```
 
