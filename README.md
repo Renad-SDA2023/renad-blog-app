@@ -7,26 +7,35 @@ A full-stack blogging web app powered by the **MERN stack (MongoDB, Express, Rea
 
 ```bash
 renad-blog-app/
-├── frontend/         # React app
-├── backend/          # Express server
+
+├── backend/ # Express.js backend API
+├── frontend/ # React.js frontend
 ├── README.md
+└── .env.example # Sample environment variables
 
 ```
 ###  Future Improvements
 
 ```bash
-Add categories/tags for posts
-
-Enable WYSIWYG editor for rich text
-
-Add comments and likes functionality
-
-Deploy to EC2 + integrate with CI/CD
+- Create, read, update, and delete blog posts
+- RESTful API built with Express and MongoDB
+-  Responsive frontend built with React + Vite
+- Deployed on AWS (EC2, S3, IAM, Route 53, etc.)
+- Environment configuration with `.env`
 
 
 ```
 
+###  Technologies Used
 
+```bash
+- **Frontend**: React, Vite, Tailwind CSS
+- **Backend**: Node.js, Express, MongoDB, Mongoose
+- **Deployment**: AWS EC2, S3, Route 53, PM2, NGINX
+- **CI/CD**: Manual via CLI and AWS SDK
+- **Tools**: VS Code, Postman, GitHub, pnpm
+
+```
 ##  Project Overview
 
 This is a fully functional blog platform that allows users to:
@@ -60,8 +69,15 @@ Here’s how data flows through the app:
 ![screenshot](https://renad-blogapp-frontend.s3.eu-north-1.amazonaws.com/images/my-photo.png.jpeg)
 ---
 
-##  Installation Guide
 
+##  How to Run Locally
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Renad-SDA2023/renad-blog-app.git
+cd blog-app-MERN
+```
 ###  Backend Setup
 
 ```bash
